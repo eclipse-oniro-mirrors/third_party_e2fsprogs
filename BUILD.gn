@@ -239,7 +239,6 @@ print("E2FSPROGS_DIR is ${E2FSPROGS_DIR}")
 
 group("e2fsprogs") {
   deps = [
-    ":blkid",
     ":e2fsck",
     ":libext2_blkid",
     ":libext2_com_err",
@@ -252,6 +251,9 @@ group("e2fsprogs") {
     ":resize2fs",
   ]
   deps += [ ":e2fsdroid" ]
+  if (e2fsprogs_enable_blkid) {
+    deps += [ ":blkid" ]
+  }
 }
 
 group("e2fsprogs_host_toolchain") {
@@ -909,6 +911,7 @@ ohos_executable("mke2fs") {
 
 ###################################################
 ###Build blkid
+if (e2fsprogs_enable_blkid) {
 ohos_executable("blkid") {
   branch_protector_ret = "pac_ret"
   configs = [ ":libext2_misc-defaults" ]
@@ -939,6 +942,7 @@ ohos_executable("blkid") {
     "updater",
   ]
   external_deps = [ "c_utils:utils" ]
+}
 }
 
 ###################################################
