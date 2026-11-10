@@ -25,8 +25,9 @@
         "ram": "",
         "deps": {
             "components": [
-                "selinux",
-                "c_utils"
+                "bounds_checking_function",
+                "c_utils",
+                "selinux"
             ],
             "third_party": []
         },
