@@ -17,7 +17,7 @@
         "name": "e2fsprogs",
         "subsystem": "thirdparty",
         "syscap": [],
-        "features": [],
+        "features": ["e2fsprogs_enable_blkid"],
         "adapted_system_type": [
             "standard"
         ],
